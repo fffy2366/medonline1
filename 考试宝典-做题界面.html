@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)http://hzs.ksbao.com/phone/html/doExam.html?fromUrl=chapterMenu.html&cptName=%E7%BB%AA%E8%AE%BA -->
+<html><!--xmlns="http://www.w3.org/1999/xhtml"--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript">
+        var loadTime = {};
+        loadTime.begin = new Date().getTime();
+        loadTime.status = "";
+        var timer = setInterval(function () {
+            errAlert()
+        }, 10000);
+        function errAlert(){
+            loadTime.status = "超过10min";
+        }
+    </script>
+    <title>考试宝典-做题界面</title>
+    <!--<link rel="icon" href="../images/favicon.ico" mce_href="/dir/favicon.ico" type="image/x-icon">-->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0,user-scalable=no">
+    <!--<link href="../css/test.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../css/dialog.css" rel="stylesheet" type="text/css"/>-->
+<!--    <script type="text/javascript" src="../js/ajax.js"></script>
+    <script type="text/javascript" src="../js/storage.js"></script>
+    <script type="text/javascript" src="../js/yingSoftSetTest.js"></script>
+    <script type="text/javascript" src="../js/softSetting.js"></script>
+    <script type="text/javascript" src="../js/testData.js"></script>
+    <script type="text/javascript" src="../js/testUI.js"></script>
+    <script type="text/javascript" src="../js/dialog.js"></script>-->
+    <script type="text/javascript" src="./考试宝典-做题界面_files/yingSoftPrg.js"></script>
+    <script type="text/javascript" src="./考试宝典-做题界面_files/yingSoftCookie.js"></script>
+    <script src="./考试宝典-做题界面_files/verLoader.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var fileName = '';
+            var appEName = G_Cookie.getAppEName();
+			if (appEName === 'ZY_HS') {
+			    fileName = '../js/easyErrorJson_ZY_HS.js';
+			} else {
+                fileName = '../js/yingSoftPrg.js';
+            }
+            //动态加载
+            G_LoadResource([
+            '../css/test.css',
+            '../css/dialog.css',
+            '../js/ajax.js',
+            '../js/storage.js',
+            '../js/userAction.js',
+			'../js/pageAction.js',
+            '../js/yingSoftSetTest.js',
+			fileName,
+            '../js/softSetting.js',
+            '../js/testData.js',
+            '../js/testUI.js',
+            '../js/dialog.js',
+            '../js/flipsnap.js',
+            '../js/cptTestCache.js',
+			'../js/share.js',
+            '../js/agentInfo.js'
+            ],
+            function () {
+                G_AgentInfo.loadIcon();
+                onloadData();
+            }
+        );
+    </script><link id="loaderCss0" rel="stylesheet" type="text/css" href="./考试宝典-做题界面_files/test.css"><link id="loaderCss1" rel="stylesheet" type="text/css" href="./考试宝典-做题界面_files/dialog.css"><script type="text/javascript" src="./考试宝典-做题界面_files/ajax.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/storage.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/userAction.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/pageAction.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/yingSoftSetTest.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/yingSoftPrg(1).js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/softSetting.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/testData.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/testUI.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/dialog.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/flipsnap.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/cptTestCache.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/share.js"></script><script type="text/javascript" src="./考试宝典-做题界面_files/agentInfo.js"></script>
+<link rel="icon" href="http://hzs.ksbao.com/phone/images/favicon.ico" type="image/x-icon"></head>
+<body style="font-size: 20px; color: rgb(0, 0, 0); line-height: 25px; background-color: rgb(255, 255, 255);">
+    <!--用来接收点击事件后隐藏弹出菜单的层-->
+    <div id="contentDiv" class="contentDiv" style="height: 627px;">
+        <!--loading动画-->
+        <div id="loadingDiv" class="loader" style="display: none;"></div>
+        <div style="display:none;">
+            <audio id="rightMedia" src="" type="audio/mpeg">抱歉，您的浏览器不支持 audio 标签。</audio>
+            <audio id="wrongMedia" src="" type="audio/mpeg">抱歉，您的浏览器不支持 audio 标签。</audio>
+        </div>
+        <!-- 批阅遮罩层 -->
+        <div id="content" style="display:none;">
+            <div class="score_con">
+                <div class="score_box" id="scoreBox">
+                    <div id="practiceCount" style="float:left; font-size:18px; line-height:35px;">本章学习人数：1人</div>
+                    <h1 id="scoreText" style="border-left:1px solid #858585;border-right:1px solid #858585;border-top:1px solid #858585;"></h1>
+                    <div class="score_tab" style="border-left: 1px solid #858585;">
+                        <ul id="scoreInfosText">
+                            <li>已答题数</li>
+                            <li>答对题数</li>
+                            <li>正确率</li>
+                            <!--li>总题数</li-->
+                            <li style="display:none;" id="allScoreText">满分</li>
+                            <li style="display:none;" id="userScoreTxt">得分</li>
+                        </ul>
+                    </div>
+                    <div class="score_tab">
+                        <ul id="scoreInfos">
+                            <li><span id="doneNum" class="color"></span></li>
+                            <li><span id="rightNum" class="color_1"></span></li>
+                            <li><span id="correctRate"></span></li>
+                            <!--li><span id="testCount"></span> 题</li-->
+                            <li style="display:none;" id="allScoreText2"><span id="allScore"></span></li>
+                            <li style="display:none;" id="userScoreTxt2"><span id="userScore"></span></li>
+                        </ul>
+                    </div>
+                    <div style=" line-height:35px;margin-top:15px; margin-bottom:-15px; font-size:18px;">
+                        <!--div id="practiceCount">本章学习人数：1人</div-->
+                        <div id="beatRate" style="display:none;">您击败了1%的考生</div>
+                    </div>
+                </div>
+                <div id="showExam" class="showExam">
+                    <div class="showexam_box">
+                        <a href="javascript:void(0);" id="searchDoneTest">查看答题情况</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--批阅遮罩层 end -->
+        <!--题卡遮罩层-->
+        <div id="cardDialog" class="daohan" style="display:none;">
+            <div>
+                <div class="tika_explain"></div>
+                <span class="text_explain">未答</span>
+                <div class="tika_explain3" id="carAnswered1" style="display:none;"></div>
+                <span class="text_explain3" id="carAnswered2" style="display:none;">已答</span>
+                <div class="tika_explain1" id="cardRight1"></div>
+                <span class="text_explain1" id="cardRight2">答对</span>
+                <div class="tika_explain2" id="cardWrong1"></div>
+                <span class="text_explain2" id="cardWrong2">答错</span>
+            </div>
+            <div id="cardContent" class="cardContent">
+            </div>
+        </div>
+        <!--题卡遮罩层 end-->
+        <!--设置遮罩层-->
+        <div id="settingDialog" style="display:none;">
+            <div class="softsttings_box">
+                <h2>字体大小</h2>
+                <ul>
+                   <!--<li id ="smallSize"  style="font-size:14px;">A</li>-->
+                    <li id="minusSize"><img src="./考试宝典-做题界面_files/font01.png"></li>
+                    <li id="addSize"><img src="./考试宝典-做题界面_files/font03.png"></li>
+                </ul>
+            </div>
+            <div class="softsttings_box">
+                <h2>昼夜模式</h2>
+                <ul>
+                    <li id="dayMode"><img id="day" src="./考试宝典-做题界面_files/setting04.png"></li>
+                    <li id="nightMode"><img id="night" src="./考试宝典-做题界面_files/setting05.png"></li>
+                </ul>
+            </div>
+            <div class="softsttings_box">
+                <h2>音效开关</h2>
+                <ul>
+                    <li id="onMedia"><img id="on" src="./考试宝典-做题界面_files/on_day.png"></li>
+                    <li id="offMedia"><img id="off" src="./考试宝典-做题界面_files/off_day.png"></li>
+                </ul>
+            </div>
+        </div>
+        <!--设置遮罩层 end-->
+        <div id="ContentTop">
+            <div class="topleft" id="chaptername" style="cursor:pointer;width:80%;">绪论</div>
+            <div class="topright2" id="marking2" style="cursor:pointer;">
+              <img src="./考试宝典-做题界面_files/piyue-xiala.png" id="markingImg2" alt="批阅" title="批阅" width="30" height="29" style="margin-top:-5px;">
+            </div>
+            <div class="topright2" id="retake2" style="display:none;cursor:pointer;">
+              <img src="./考试宝典-做题界面_files/chongkao-xiala.png" alt="重考" title="重考" width="30" height="29" style="margin-top:-5px;">
+            </div>
+            <!--div class="topright2" id="btnShare" style="cursor:pointer;">
+                <img src="../images/btn_share.png" alt="分享试题" title="分享试题" width="30" height="29"/>
+            </div-->
+            <div id="shareTest" style="display:none;">
+                <div id="htmlUrl" style="margin-top:20px;">
+                    <input type="text" id="txtHtmlUrl" class="txtHtmlUrl" value="http://newt.ksbao.com" readonly="readonly">
+                </div>
+                <div style="margin-top:30px;">
+                    <div class="shareTxt">分享到：</div>
+                    <div>
+                        <!--a href="javascript:void(0);" id="share_wx"><img src="../images/icon/icon_wx.png"></a-->
+                        <a href="javascript:void(0);" id="share_qzone" title="QQ空间分享"><img src="./考试宝典-做题界面_files/icon_qqQzone.png"></a>
+                        <a href="javascript:void(0);" id="share_txwb" title="腾讯微博分享"><img src="./考试宝典-做题界面_files/icon_txwb.png"></a>
+                        <a href="javascript:void(0);" id="share_xlwb" title="新浪微博分享"><img src="./考试宝典-做题界面_files/icon_xlwb.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--开始 页面的id不要轻易改动==========================================================================================================================================-->
+        <div id="exambt" style="display: none"></div>
+        <!--结束==========================================================================================================================================-->
+        <!--滑动层-->
+        <div id="dragContent" class="outer" style="height: 627px;">
+            <div id="innerdiv" class="inner" style="transition-property: transform; transition-timing-function: cubic-bezier(0, 0, 0.25, 1); transition-duration: 350ms; transform: translate3d(0px, 0px, 0px);">
+            <div id="flipTest1"><flipcontent1 id="flipContent1" class="flipContentDiv">
+        <div id="exam_0">
+        <!--单选题 start-->
+        <div class="exam" id="radio_exam_0" style="display: block;">
+            <div class="explain">
+                <div id="radio_styleExplain_0" style=" float:left;">A1型题</div>
+                <div id="radio_pageNum_0" style=" float:right; cursor:pointer;">
+                    <span id="radio_curPageNum_0" class="tigan">1</span>/<span id="radio_totalPageNum_0" class="tishu" style="color: rgb(0, 0, 0);">5</span>
+                </div>
+            </div>
+            <div class="title" id="radio_title_0" style="line-height: 30px; font-size: 22px;">
+                <div id="radio_testTitle_0">1、"见微知著"主要是指(   )</div>
+            </div>
+            <div id="radio_wrap_0" class="fm300">
+                <div class="Content0" id="radio_Content0_0">
+                    <ul id="radio_Items_0">
+                        <li id="radio_items_0_0" class="radioDefaultImg" lang="A" style="display: block;">A.从轻微的表现预测严重的病变</li>
+                        <li id="radio_items_1_0" class="radioDefaultImg" lang="B" style="display: block;">B.从局部的微小变化测知整体情况</li>
+                        <li id="radio_items_2_0" class="radioDefaultImg" lang="C" style="display: block;">C.从隐蔽的症状测知明显的症状</li>
+                        <li id="radio_items_3_0" class="radioDefaultImg" lang="D" style="display: block;">D.从易忽略的体征中求得病情</li>
+                        <li id="radio_items_4_0" class="radioDefaultImg" lang="E" style="display: block;">E.运用特殊诊法诊断出病证</li>
+                        <li id="radio_items_5_0" style="display: none;"></li>
+                        <li id="radio_items_6_0" style="display: none;"></li>
+                        <li id="radio_items_7_0" style="display: none;"></li>
+                        <li id="radio_items_8_0" style="display: none;"></li>
+                        <li id="radio_items_9_0" style="display: none;"></li>
+                        <li id="radio_items_10_0" style="display: none;"></li>
+                        <li id="radio_items_11_0" style="display: none;"></li>
+                        <li id="radio_items_12_0" style="display: none;"></li>
+                        <li id="radio_items_13_0" style="display: none;"></li>
+                    </ul>
+                </div>
+                <div class="result" id="radio_result_0" style="display: none; margin-bottom: 8px;">
+                    <div id="radio_answer_0" style="display: block;">答案：B</div>
+                    <div id="radio_explain_0" style="display: none;">解析：无</div>
+                    <div id="radio_testPoint_0" style="display: none;">考点：无</div>
+                </div>
+                <div class="myNoteDiv" id="radio_noteCount_0" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="radio_myNote_0" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="radio_time_0" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="radio_getOtherNote_0" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="radio_otherNoteCount_0" style="display:none;">
+                    <div id="radio_otherTxt_0" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="radio_refresh_0" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="radio_otherNoteList_0">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="radio_moreNote_0">加载更多大家的笔记</div>
+                </div>
+                
+                <div id="radio_operate_0" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div> 
+                <div id="radio_moveNextDiv_0" class="next_button_3" style="display: block; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="radio_cuoR_0"></div>
+            </div>
+          
+        </div> <!--单选题 end-->
+        <!--多选题 start-->
+        <div class="exam" id="checkbox_exam_0" style="display: none;">
+            <div class="explain">
+                <div id="checkbox_styleExplain_0" style=" float:left;">多选题题型说明</div>
+                <div id="checkbox_pageNum_0" style=" float:right; cursor:pointer;">
+                    <span id="checkbox_curPageNum_0" class="tigan">222</span>/<span id="checkbox_totalPageNum_0" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="checkbox_title_0" style="line-height: 30px; font-size: 22px;">
+                <div id="checkbox_testTitle_0">多选题试题标题</div>
+            </div>
+            <div id="checkbox_wrap_0" class="fm300">
+                <div class="Content0" id="checkbox_Content0_0">
+                    <ul id="checkbox_Items_0">
+                        <li id="checkbox_items_0_0"></li>
+                        <li id="checkbox_items_1_0"> </li>
+                        <li id="checkbox_items_2_0"></li>
+                        <li id="checkbox_items_3_0"></li>
+                        <li id="checkbox_items_4_0"></li>
+                        <li id="checkbox_items_5_0"></li>
+                        <li id="checkbox_items_6_0"></li>
+                        <li id="checkbox_items_7_0"></li>
+                        <li id="checkbox_items_8_0"></li>
+                        <li id="checkbox_items_9_0"></li>
+                        <li id="checkbox_items_10_0"></li>
+                        <li id="checkbox_items_11_0"></li>
+                        <li id="checkbox_items_12_0"></li>
+                        <li id="checkbox_items_13_0"></li>
+                        <li id="checkbox_items_14_0"></li>
+                    </ul>
+                </div>
+                <div class="result" id="checkbox_result_0">
+                    <div id="checkbox_answer_0">正确答案：curTest.Answer </div>
+                    <div id="checkbox_explain_0">试题解析： curTest.Explain </div>
+                    <div id="checkbox_testPoint_0">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="checkbox_noteCount_0" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="checkbox_myNote_0" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="checkbox_time_0" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="checkbox_getOtherNote_0" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="checkbox_otherNoteCount_0" style="display:none;">
+                    <div id="checkbox_otherTxt_0" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="checkbox_refresh_0" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="checkbox_otherNoteList_0">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="checkbox_moreNote_0">加载更多大家的笔记</div>
+                </div>
+                <div id="checkbox_operate_0" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="checkbox_btn_0" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>提交答案</span>
+                </div>
+                <div id="checkbox_moveNextDiv_0" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="checkbox_cuoR_0"></div>
+            </div>
+        </div> <!--多选题 end-->
+        <!--A3TEST 单选题 start-->
+        <div class="exam" id="A3_radio_exam_0" style="display: none;">
+            <div class="explain">
+                <div id="A3_radio_styleExplain_0" style=" float:left;">A3型题——单选题题型说明</div>
+                <div id="A3_radio_pageNum_0" style=" float:right; cursor:pointer;">
+                    <span id="A3_radio_curPageNum_0" class="tigan">222</span>/<span id="A3_radio_totalPageNum_0" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="A3_radio_title_0" style="line-height: 30px; font-size: 22px;">
+                <div id="A3_radio_testTitle_0">A3型题——单选题试题标题</div>
+                <div id="A3_radio_a3test_0">A3题型小标题</div>
+            </div>
+            <div id="A3_radio_wrap_0" class="fm300">
+                <div class="Content0" id="A3_radio_Content0_0">
+                    <ul id="A3_radio_Items_0">
+                        <li id="A3_radio_items_0_0"></li>
+                        <li id="A3_radio_items_1_0"></li>
+                        <li id="A3_radio_items_2_0"></li>
+                        <li id="A3_radio_items_3_0"></li>
+                        <li id="A3_radio_items_4_0"></li>
+                        <li id="A3_radio_items_5_0"></li>
+                        <li id="A3_radio_items_6_0"></li>
+                        <li id="A3_radio_items_7_0"></li>
+                        <li id="A3_radio_items_8_0"></li>
+                        <li id="A3_radio_items_9_0"></li>
+                        <li id="A3_radio_items_10_0"></li>
+                        <li id="A3_radio_items_11_0"></li>
+                        <li id="A3_radio_items_12_0"></li>
+                        <li id="A3_radio_items_13_0"></li>
+                        <li id="A3_radio_items_14_0"></li>
+                    </ul>
+                </div>
+                <div class="result" id="A3_radio_result_0">
+                    <div id="A3_radio_answer_0">正确答案：curTest.Answer </div>
+                    <div id="A3_radio_explain_0">试题解析： curTest.Explain </div>
+                    <div id="A3_radio_testPoint_0">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="A3_radio_noteCount_0" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="A3_radio_myNote_0" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="A3_radio_time_0" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="A3_radio_getOtherNote_0" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="A3_radio_otherNoteCount_0" style="display:none;">
+                    <div id="A3_radio_otherTxt_0" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="A3_radio_refresh_0" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="A3_radio_otherNoteList_0">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="A3_radio_moreNote_0">加载更多大家的笔记</div>
+                </div>
+                <div id="A3_radio_operate_0" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="A3_radio_moveNextDiv_0" class="next_button_3" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="A3_radio_cuoR_0"></div>
+            </div>
+        </div> <!--A3TEST 单选题 end-->
+        <!--A3TEST 多选题 start-->
+        <div class="exam" id="A3_checkbox_exam_0" style="display: none;">
+            <div class="explain">
+                <div id="A3_checkbox_styleExplain_0" style=" float:left;">A3型题——多选题题型说明</div>
+                <div id="A3_checkbox_pageNum_0" style=" float:right; cursor:pointer;">
+                    <span id="A3_checkbox_curPageNum_0" class="tigan">222</span>/<span id="A3_checkbox_totalPageNum_0" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="A3_checkbox_title_0" style="line-height: 30px; font-size: 22px;">
+                <div id="A3_checkbox_testTitle_0">A3型题——多选题试题标题</div>
+                <div id="A3_checkbox_a3test_0">A3题型小标题</div>
+            </div>
+            <div id="A3_checkbox_wrap_0" class="fm300">
+                <div class="Content0" id="A3_checkbox_Content0_0">
+                    <ul id="A3_checkbox_Items_0">
+                        <li id="A3_checkbox_items_0_0"></li>
+                        <li id="A3_checkbox_items_1_0"></li>
+                        <li id="A3_checkbox_items_2_0"></li>
+                        <li id="A3_checkbox_items_3_0"></li>
+                        <li id="A3_checkbox_items_4_0"></li>
+                        <li id="A3_checkbox_items_5_0"></li>
+                        <li id="A3_checkbox_items_6_0"></li>
+                        <li id="A3_checkbox_items_7_0"></li>
+                        <li id="A3_checkbox_items_8_0"></li>
+                        <li id="A3_checkbox_items_9_0"></li>
+                        <li id="A3_checkbox_items_10_0"></li>
+                        <li id="A3_checkbox_items_11_0"></li>
+                        <li id="A3_checkbox_items_12_0"></li>
+                        <li id="A3_checkbox_items_13_0"></li>
+                        <li id="A3_checkbox_items_14_0"></li>
+                        <li id="A3_checkbox_items_15_0"></li>
+                    </ul>
+                </div>
+                <div class="result" id="A3_checkbox_result_0">
+                    <div id="A3_checkbox_answer_0">正确答案：curTest.Answer </div>
+                    <div id="A3_checkbox_explain_0">试题解析： curTest.Explain </div>
+                    <div id="A3_checkbox_testPoint_0">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="A3_checkbox_noteCount_0" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="A3_checkbox_myNote_0" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="A3_checkbox_time_0" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="A3_checkbox_getOtherNote_0" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="A3_checkbox_otherNoteCount_0" style="display:none;">
+                    <div id="A3_checkbox_otherTxt_0" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="A3_checkbox_refresh_0" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="A3_checkbox_otherNoteList_0">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="A3_checkbox_moreNote_0">加载更多大家的笔记</div>
+                </div>
+        
+                <div id="A3_checkbox_operate_0" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="A3_checkbox_btn_0" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>提交答案</span>
+                </div> 
+                <div id="A3_checkbox_moveNextDiv_0" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="A3_checkbox_cuoR_0"></div>
+            </div>
+        </div> <!--A3TEST 多选题 end-->
+        <!--BTEST 单选题 start-->
+        <div class="exam" id="B_radio_exam_0" style="display: none;">
+            <div class="explain">
+                <div id="B_radio_styleExplain_0" style=" float:left;">B型题——单选题题型说明</div>
+                <div id="B_radio_pageNum_0" style=" float:right; cursor:pointer;">
+                    <span id="B_radio_curPageNum_0" class="tigan">222</span>/<span id="B_radio_totalPageNum_0" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="B_radio_title_0" style="line-height: 30px; font-size: 22px;">
+                <div id="B_radio_testTitle_0">B型题——单选题试题标题</div>
+            </div>
+            <div id="B_radio_wrap_0" class="fm300">
+                <div class="Content0" id="B_radio_Content0_0">
+                    <ul id="B_radio_Items_0">
+                        <li id="B_radio_items_0_0"></li>
+                        <li id="B_radio_items_1_0"></li>
+                        <li id="B_radio_items_2_0"></li>
+                        <li id="B_radio_items_3_0"></li>
+                        <li id="B_radio_items_4_0"></li>
+                        <li id="B_radio_items_5_0"></li>
+                        <li id="B_radio_items_6_0"></li>
+                        <li id="B_radio_items_7_0"></li>
+                        <li id="B_radio_items_8_0"></li>
+                        <li id="B_radio_items_9_0"></li>
+                        <li id="B_radio_items_10_0"></li>
+                        <li id="B_radio_items_11_0"></li>
+                        <li id="B_radio_items_12_0"></li>
+                        <li id="B_radio_items_13_0"></li>
+                        <li id="B_radio_items_14_0"></li>
+                        <li id="B_radio_items_15_0"></li>
+                    </ul>
+                </div>
+                <div class="result" id="B_radio_result_0">
+                    <div id="B_radio_answer_0">正确答案：curTest.Answer </div>
+                    <div id="B_radio_explain_0">试题解析： curTest.Explain </div>
+                    <div id="B_radio_testPoint_0">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="B_radio_noteCount_0" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="B_radio_myNote_0" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="B_radio_time_0" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="B_radio_getOtherNote_0" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="B_radio_otherNoteCount_0" style="display:none;">
+                    <div id="B_radio_otherTxt_0" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="B_radio_refresh_0" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="B_radio_otherNoteList_0">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="B_radio_moreNote_0">加载更多大家的笔记</div>
+                </div>
+                <div id="B_radio_operate_0" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="B_radio_moveNextDiv_0" class="next_button_3" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="B_radio_cuoR_0"></div>
+            </div>
+        </div> <!--BTEST 单选题 end-->
+        <!--BTEST 多选题 start-->
+        <div class="exam" id="B_checkbox_exam_0" style="display: none;">
+            <div class="explain">
+                <div id="B_checkbox_styleExplain_0" style=" float:left;">B型题——多选题题型说明</div>
+                <div id="B_checkbox_pageNum_0" style=" float:right; cursor:pointer;">
+                    <span id="B_checkbox_curPageNum_0" class="tigan">222</span>/<span id="B_checkbox_totalPageNum_0" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="B_checkbox_title_0" style="line-height: 30px; font-size: 22px;">
+                <div id="B_checkbox_testTitle_0">B型题——多选题试题标题</div>
+            </div>
+            <div id="B_checkbox_wrap_0" class="fm300">
+                <div class="Content0" id="B_checkbox_Content0_0">
+                    <ul id="B_checkbox_Items_0">
+                        <li id="B_checkbox_items_0_0"></li>
+                        <li id="B_checkbox_items_1_0"></li>
+                        <li id="B_checkbox_items_2_0"></li>
+                        <li id="B_checkbox_items_3_0"></li>
+                        <li id="B_checkbox_items_4_0"></li>
+                        <li id="B_checkbox_items_5_0"></li>
+                        <li id="B_checkbox_items_6_0"></li>
+                        <li id="B_checkbox_items_7_0"></li>
+                        <li id="B_checkbox_items_8_0"></li>
+                        <li id="B_checkbox_items_9_0"></li>
+                        <li id="B_checkbox_items_10_0"></li>
+                        <li id="B_checkbox_items_11_0"></li>
+                        <li id="B_checkbox_items_12_0"></li>
+                        <li id="B_checkbox_items_13_0"></li>
+                        <li id="B_checkbox_items_14_0"></li>
+                    </ul>
+                </div>
+                <div class="result" id="B_checkbox_result_0">
+                    <div id="B_checkbox_answer_0">正确答案：curTest.Answer </div>
+                    <div id="B_checkbox_explain_0">试题解析： curTest.Explain </div>
+                    <div id="B_checkbox_testPoint_0">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="B_checkbox_noteCount_0" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="B_checkbox_myNote_0" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="B_checkbox_time_0" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="B_checkbox_getOtherNote_0" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="B_checkbox_otherNoteCount_0" style="display:none;">
+                    <div id="B_checkbox_otherTxt_0" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="B_checkbox_refresh_0" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="B_checkbox_otherNoteList_0">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="B_checkbox_moreNote_0">加载更多大家的笔记</div>
+                </div>
+        
+                <div id="B_checkbox_operate_0" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="B_checkbox_btn_0" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>提交答案</span>
+                </div>
+                <div id="B_checkbox_moveNextDiv_0" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="B_checkbox_cuoR_0"></div>
+            </div>
+        </div> <!--BTEST 多选题 end-->
+        <!--判断题 start-->
+        <div class="exam" id="pd_exam_0" style="display: none;">
+            <div class="explain">
+                <div id="pd_styleExplain_0" style=" float:left;">判断题题型说明</div>
+                <div id="pd_pageNum_0" style=" float:right; cursor:pointer;">
+                    <span id="pd_curPageNum_0" class="tigan">222</span>/<span id="pd_totalPageNum_0" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="pd_title_0" style="line-height: 30px; font-size: 22px;">
+                <div id="pd_testTitle_0">判断选题试题标题</div>
+            </div>
+            <div id="pd_wrap_0" class="fm300">
+                <div class="Content0" id="pd_Content0_0">
+                    <ul id="pd_radio_Items_0">
+                        <li id="pd_radio_items_0_0" lang="对">A.对</li>
+                        <li id="pd_radio_items_1_0" lang="错">B.错</li>
+                        <li id="pd_radio_items_2_0" lang="错">B.错 </li>
+                    </ul>
+                </div>
+                <div class="result" id="pd_result_0">
+                    <div id="pd_answer_0">正确答案：curTest.Answer </div>
+                    <div id="pd_explain_0">试题解析： curTest.Explain </div>
+                    <div id="pd_testPoint_0">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="pd_noteCount_0" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="pd_myNote_0" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="pd_time_0" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="pd_getOtherNote_0" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="pd_otherNoteCount_0" style="display:none;">
+                    <div id="pd_otherTxt_0" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="pd_refresh_0" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="pd_otherNoteList_0">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="pd_moreNote_0">加载更多大家的笔记</div>
+                </div>
+        
+                <div id="pd_operate_0" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="pd_moveNextDiv_0" class="next_button_3" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="pd_cuoR_0"></div>
+            </div>
+        </div> <!--判断题 end-->
+        <!--简答题 start-->
+        <div class="exam" id="jd_exam_0" style="display: none;">
+            <div class="explain">
+                <div id="jd_styleExplain_0" style=" float:left;">简答题题型说明</div>
+                <div id="jd_pageNum_0" style=" float:right; cursor:pointer;">
+                    <span id="jd_curPageNum_0" class="tigan">222</span>/<span id="jd_totalPageNum_0" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="jd_title_0" style="line-height: 30px; font-size: 22px;">
+                <div id="jd_testTitle_0">简答题试题标题</div>
+            </div>
+            <div id="jd_wrap_0" class="fm300">
+                <div class="area" id="jd_area_0">
+                    <textarea id="jd_textarea_0" cols="52" rows="7"></textarea>
+                </div>
+                <div class="result" id="jd_result_0">
+                    <div id="jd_answer_0">正确答案：curTest.Answer </div>
+                    <div id="jd_explain_0">试题解析： curTest.Explain </div>
+                    <div id="jd_testPoint_0">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="jd_noteCount_0" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="jd_myNote_0" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="jd_time_0" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="jd_getOtherNote_0" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="jd_otherNoteCount_0" style="display:none;">
+                    <div id="jd_otherTxt_0" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="jd_refresh_0" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="jd_otherNoteList_0">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="jd_moreNote_0">加载更多大家的笔记</div>
+                </div>
+                <div id="jd_operate_0" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="jd_btn_0" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="jd_moveNextDiv_0" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="jd_cuoR_0"></div>
+            </div>
+        </div> <!--简答题 end-->
+        <!--填空题 start-->
+        <div class="exam" id="tk_exam_0" style="display: none;">
+            <div class="explain">
+                <div id="tk_styleExplain_0" style=" float:left;">填空题题型说明</div>
+                <div id="tk_pageNum_0" style=" float:right; cursor:pointer;">
+                    <span id="tk_curPageNum_0" class="tigan">222</span>/<span id="tk_totalPageNum_0" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="tk_title_0" style="line-height: 30px; font-size: 22px;">
+                <div id="tk_testTitle_0">填空题试题标题</div>
+            </div>
+            <div id="wrap_0" class="fm300">
+                <div class="area" id="tk_area_0">
+                    <ol id="tk_Items_0" type="1">
+                        <li id="tk_items_0_0"><input type="text" id="tk_itemsText_0_0"></li>
+                        <li id="tk_items_1_0"><input type="text" id="tk_itemsText_1_0"></li>
+                        <li id="tk_items_2_0"><input type="text" id="tk_itemsText_2_0"></li>
+                        <li id="tk_items_3_0"><input type="text" id="tk_itemsText_3_0"></li>
+                        <li id="tk_items_4_0"><input type="text" id="tk_itemsText_4_0"></li>
+                        <li id="tk_items_5_0"><input type="text" id="tk_itemsText_5_0"></li>
+                        <li id="tk_items_6_0"><input type="text" id="tk_itemsText_6_0"></li>
+                        <li id="tk_items_7_0"><input type="text" id="tk_itemsText_7_0"></li>
+                        <li id="tk_items_8_0"><input type="text" id="tk_itemsText_8_0"></li>
+                        <li id="tk_items_9_0"><input type="text" id="tk_itemsText_9_0"></li>
+                        <li id="tk_items_10_0"><input type="text" id="tk_itemsText_10_0"></li>
+                    </ol>
+                </div>
+                <div class="result" id="tk_result_0">
+                    <div id="tk_answer_0">正确答案：curTest.Answer </div>
+                    <div id="tk_explain_0">试题解析： curTest.Explain </div>
+                    <div id="tk_testPoint_0">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="tk_noteCount_0" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="tk_myNote_0" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="tk_time_0" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="tk_getOtherNote_0" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="tk_otherNoteCount_0" style="display:none;">
+                    <div id="tk_otherTxt_0" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="tk_refresh_0" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="tk_otherNoteList_0">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="tk_moreNote_0">加载更多大家的笔记</div>
+                </div>
+                <div id="tk_operate_0" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="tk_btn_0" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="tk_moveNextDiv_0" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="tk_cuoR_0"></div>
+            </div>
+        </div> <!--填空题 end-->
+		<div id="moreBtn_0" style="width:90%;">
+			<div id="videoBtn_0" class="next_button_3" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+				 <span>章节视频</span>
+			</div>
+		</div>
+        <div id="markingDiv_0" class="marking_button" style=" display:none; cursor:pointer;">
+            <span>批阅</span>
+        </div>
+        </div> <!--exambt end-->
+        </flipcontent1><div class="flipDiv"></div></div><div id="flipTest2"><flipcontent2 id="flipContent2" class="flipContentDiv">
+        <div id="exam_1">
+        <!--单选题 start-->
+        <div class="exam" id="radio_exam_1" style="display: block;">
+            <div class="explain">
+                <div id="radio_styleExplain_1" style=" float:left;">A1型题</div>
+                <div id="radio_pageNum_1" style=" float:right; cursor:pointer;">
+                    <span id="radio_curPageNum_1" class="tigan">2</span>/<span id="radio_totalPageNum_1" class="tishu" style="color: rgb(0, 0, 0);">5</span>
+                </div>
+            </div>
+            <div class="title" id="radio_title_1" style="line-height: 30px; font-size: 22px;">
+                <div id="radio_testTitle_1">2、下列各项，属于中医诊断基本原则的是(   )</div>
+            </div>
+            <div id="radio_wrap_1" class="fm300">
+                <div class="Content0" id="radio_Content0_1">
+                    <ul id="radio_Items_1">
+                        <li id="radio_items_0_1" class="radioDefaultImg" lang="A" style="display: block;">A.整体审察</li>
+                        <li id="radio_items_1_1" class="radioDefaultImg" lang="B" style="display: block;">B.司外揣内</li>
+                        <li id="radio_items_2_1" class="radioDefaultImg" lang="C" style="display: block;">C.辨病论治</li>
+                        <li id="radio_items_3_1" class="radioDefaultImg" lang="D" style="display: block;">D.辨证论治</li>
+                        <li id="radio_items_4_1" class="radioDefaultImg" lang="E" style="display: block;">E.望闻问切</li>
+                        <li id="radio_items_5_1" style="display: none;"></li>
+                        <li id="radio_items_6_1" style="display: none;"></li>
+                        <li id="radio_items_7_1" style="display: none;"></li>
+                        <li id="radio_items_8_1" style="display: none;"></li>
+                        <li id="radio_items_9_1" style="display: none;"></li>
+                        <li id="radio_items_10_1" style="display: none;"></li>
+                        <li id="radio_items_11_1" style="display: none;"></li>
+                        <li id="radio_items_12_1" style="display: none;"></li>
+                        <li id="radio_items_13_1" style="display: none;"></li>
+                    </ul>
+                </div>
+                <div class="result" id="radio_result_1" style="display: none; margin-bottom: 8px;">
+                    <div id="radio_answer_1" style="display: block;">答案：A</div>
+                    <div id="radio_explain_1" style="display: none;">解析：无</div>
+                    <div id="radio_testPoint_1" style="display: none;">考点：无</div>
+                </div>
+                <div class="myNoteDiv" id="radio_noteCount_1" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="radio_myNote_1" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="radio_time_1" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="radio_getOtherNote_1" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="radio_otherNoteCount_1" style="display:none;">
+                    <div id="radio_otherTxt_1" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="radio_refresh_1" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="radio_otherNoteList_1">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="radio_moreNote_1">加载更多大家的笔记</div>
+                </div>
+                
+                <div id="radio_operate_1" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div> 
+                <div id="radio_moveNextDiv_1" class="next_button_3" style="display: block; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="radio_cuoR_1"></div>
+            </div>
+          
+        </div> <!--单选题 end-->
+        <!--多选题 start-->
+        <div class="exam" id="checkbox_exam_1" style="display: none;">
+            <div class="explain">
+                <div id="checkbox_styleExplain_1" style=" float:left;">多选题题型说明</div>
+                <div id="checkbox_pageNum_1" style=" float:right; cursor:pointer;">
+                    <span id="checkbox_curPageNum_1" class="tigan">222</span>/<span id="checkbox_totalPageNum_1" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="checkbox_title_1" style="line-height: 30px; font-size: 22px;">
+                <div id="checkbox_testTitle_1">多选题试题标题</div>
+            </div>
+            <div id="checkbox_wrap_1" class="fm300">
+                <div class="Content0" id="checkbox_Content0_1">
+                    <ul id="checkbox_Items_1">
+                        <li id="checkbox_items_0_1"></li>
+                        <li id="checkbox_items_1_1"> </li>
+                        <li id="checkbox_items_2_1"></li>
+                        <li id="checkbox_items_3_1"></li>
+                        <li id="checkbox_items_4_1"></li>
+                        <li id="checkbox_items_5_1"></li>
+                        <li id="checkbox_items_6_1"></li>
+                        <li id="checkbox_items_7_1"></li>
+                        <li id="checkbox_items_8_1"></li>
+                        <li id="checkbox_items_9_1"></li>
+                        <li id="checkbox_items_10_1"></li>
+                        <li id="checkbox_items_11_1"></li>
+                        <li id="checkbox_items_12_1"></li>
+                        <li id="checkbox_items_13_1"></li>
+                        <li id="checkbox_items_14_1"></li>
+                    </ul>
+                </div>
+                <div class="result" id="checkbox_result_1">
+                    <div id="checkbox_answer_1">正确答案：curTest.Answer </div>
+                    <div id="checkbox_explain_1">试题解析： curTest.Explain </div>
+                    <div id="checkbox_testPoint_1">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="checkbox_noteCount_1" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="checkbox_myNote_1" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="checkbox_time_1" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="checkbox_getOtherNote_1" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="checkbox_otherNoteCount_1" style="display:none;">
+                    <div id="checkbox_otherTxt_1" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="checkbox_refresh_1" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="checkbox_otherNoteList_1">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="checkbox_moreNote_1">加载更多大家的笔记</div>
+                </div>
+                <div id="checkbox_operate_1" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="checkbox_btn_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>提交答案</span>
+                </div>
+                <div id="checkbox_moveNextDiv_1" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="checkbox_cuoR_1"></div>
+            </div>
+        </div> <!--多选题 end-->
+        <!--A3TEST 单选题 start-->
+        <div class="exam" id="A3_radio_exam_1" style="display: none;">
+            <div class="explain">
+                <div id="A3_radio_styleExplain_1" style=" float:left;">A3型题——单选题题型说明</div>
+                <div id="A3_radio_pageNum_1" style=" float:right; cursor:pointer;">
+                    <span id="A3_radio_curPageNum_1" class="tigan">222</span>/<span id="A3_radio_totalPageNum_1" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="A3_radio_title_1" style="line-height: 30px; font-size: 22px;">
+                <div id="A3_radio_testTitle_1">A3型题——单选题试题标题</div>
+                <div id="A3_radio_a3test_1">A3题型小标题</div>
+            </div>
+            <div id="A3_radio_wrap_1" class="fm300">
+                <div class="Content0" id="A3_radio_Content0_1">
+                    <ul id="A3_radio_Items_1">
+                        <li id="A3_radio_items_0_1"></li>
+                        <li id="A3_radio_items_1_1"></li>
+                        <li id="A3_radio_items_2_1"></li>
+                        <li id="A3_radio_items_3_1"></li>
+                        <li id="A3_radio_items_4_1"></li>
+                        <li id="A3_radio_items_5_1"></li>
+                        <li id="A3_radio_items_6_1"></li>
+                        <li id="A3_radio_items_7_1"></li>
+                        <li id="A3_radio_items_8_1"></li>
+                        <li id="A3_radio_items_9_1"></li>
+                        <li id="A3_radio_items_10_1"></li>
+                        <li id="A3_radio_items_11_1"></li>
+                        <li id="A3_radio_items_12_1"></li>
+                        <li id="A3_radio_items_13_1"></li>
+                        <li id="A3_radio_items_14_1"></li>
+                    </ul>
+                </div>
+                <div class="result" id="A3_radio_result_1">
+                    <div id="A3_radio_answer_1">正确答案：curTest.Answer </div>
+                    <div id="A3_radio_explain_1">试题解析： curTest.Explain </div>
+                    <div id="A3_radio_testPoint_1">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="A3_radio_noteCount_1" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="A3_radio_myNote_1" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="A3_radio_time_1" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="A3_radio_getOtherNote_1" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="A3_radio_otherNoteCount_1" style="display:none;">
+                    <div id="A3_radio_otherTxt_1" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="A3_radio_refresh_1" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="A3_radio_otherNoteList_1">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="A3_radio_moreNote_1">加载更多大家的笔记</div>
+                </div>
+                <div id="A3_radio_operate_1" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="A3_radio_moveNextDiv_1" class="next_button_3" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="A3_radio_cuoR_1"></div>
+            </div>
+        </div> <!--A3TEST 单选题 end-->
+        <!--A3TEST 多选题 start-->
+        <div class="exam" id="A3_checkbox_exam_1" style="display: none;">
+            <div class="explain">
+                <div id="A3_checkbox_styleExplain_1" style=" float:left;">A3型题——多选题题型说明</div>
+                <div id="A3_checkbox_pageNum_1" style=" float:right; cursor:pointer;">
+                    <span id="A3_checkbox_curPageNum_1" class="tigan">222</span>/<span id="A3_checkbox_totalPageNum_1" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="A3_checkbox_title_1" style="line-height: 30px; font-size: 22px;">
+                <div id="A3_checkbox_testTitle_1">A3型题——多选题试题标题</div>
+                <div id="A3_checkbox_a3test_1">A3题型小标题</div>
+            </div>
+            <div id="A3_checkbox_wrap_1" class="fm300">
+                <div class="Content0" id="A3_checkbox_Content0_1">
+                    <ul id="A3_checkbox_Items_1">
+                        <li id="A3_checkbox_items_0_1"></li>
+                        <li id="A3_checkbox_items_1_1"></li>
+                        <li id="A3_checkbox_items_2_1"></li>
+                        <li id="A3_checkbox_items_3_1"></li>
+                        <li id="A3_checkbox_items_4_1"></li>
+                        <li id="A3_checkbox_items_5_1"></li>
+                        <li id="A3_checkbox_items_6_1"></li>
+                        <li id="A3_checkbox_items_7_1"></li>
+                        <li id="A3_checkbox_items_8_1"></li>
+                        <li id="A3_checkbox_items_9_1"></li>
+                        <li id="A3_checkbox_items_10_1"></li>
+                        <li id="A3_checkbox_items_11_1"></li>
+                        <li id="A3_checkbox_items_12_1"></li>
+                        <li id="A3_checkbox_items_13_1"></li>
+                        <li id="A3_checkbox_items_14_1"></li>
+                        <li id="A3_checkbox_items_15_1"></li>
+                    </ul>
+                </div>
+                <div class="result" id="A3_checkbox_result_1">
+                    <div id="A3_checkbox_answer_1">正确答案：curTest.Answer </div>
+                    <div id="A3_checkbox_explain_1">试题解析： curTest.Explain </div>
+                    <div id="A3_checkbox_testPoint_1">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="A3_checkbox_noteCount_1" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="A3_checkbox_myNote_1" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="A3_checkbox_time_1" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="A3_checkbox_getOtherNote_1" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="A3_checkbox_otherNoteCount_1" style="display:none;">
+                    <div id="A3_checkbox_otherTxt_1" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="A3_checkbox_refresh_1" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="A3_checkbox_otherNoteList_1">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="A3_checkbox_moreNote_1">加载更多大家的笔记</div>
+                </div>
+        
+                <div id="A3_checkbox_operate_1" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="A3_checkbox_btn_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>提交答案</span>
+                </div> 
+                <div id="A3_checkbox_moveNextDiv_1" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="A3_checkbox_cuoR_1"></div>
+            </div>
+        </div> <!--A3TEST 多选题 end-->
+        <!--BTEST 单选题 start-->
+        <div class="exam" id="B_radio_exam_1" style="display: none;">
+            <div class="explain">
+                <div id="B_radio_styleExplain_1" style=" float:left;">B型题——单选题题型说明</div>
+                <div id="B_radio_pageNum_1" style=" float:right; cursor:pointer;">
+                    <span id="B_radio_curPageNum_1" class="tigan">222</span>/<span id="B_radio_totalPageNum_1" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="B_radio_title_1" style="line-height: 30px; font-size: 22px;">
+                <div id="B_radio_testTitle_1">B型题——单选题试题标题</div>
+            </div>
+            <div id="B_radio_wrap_1" class="fm300">
+                <div class="Content0" id="B_radio_Content0_1">
+                    <ul id="B_radio_Items_1">
+                        <li id="B_radio_items_0_1"></li>
+                        <li id="B_radio_items_1_1"></li>
+                        <li id="B_radio_items_2_1"></li>
+                        <li id="B_radio_items_3_1"></li>
+                        <li id="B_radio_items_4_1"></li>
+                        <li id="B_radio_items_5_1"></li>
+                        <li id="B_radio_items_6_1"></li>
+                        <li id="B_radio_items_7_1"></li>
+                        <li id="B_radio_items_8_1"></li>
+                        <li id="B_radio_items_9_1"></li>
+                        <li id="B_radio_items_10_1"></li>
+                        <li id="B_radio_items_11_1"></li>
+                        <li id="B_radio_items_12_1"></li>
+                        <li id="B_radio_items_13_1"></li>
+                        <li id="B_radio_items_14_1"></li>
+                        <li id="B_radio_items_15_1"></li>
+                    </ul>
+                </div>
+                <div class="result" id="B_radio_result_1">
+                    <div id="B_radio_answer_1">正确答案：curTest.Answer </div>
+                    <div id="B_radio_explain_1">试题解析： curTest.Explain </div>
+                    <div id="B_radio_testPoint_1">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="B_radio_noteCount_1" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="B_radio_myNote_1" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="B_radio_time_1" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="B_radio_getOtherNote_1" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="B_radio_otherNoteCount_1" style="display:none;">
+                    <div id="B_radio_otherTxt_1" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="B_radio_refresh_1" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="B_radio_otherNoteList_1">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="B_radio_moreNote_1">加载更多大家的笔记</div>
+                </div>
+                <div id="B_radio_operate_1" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="B_radio_moveNextDiv_1" class="next_button_3" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="B_radio_cuoR_1"></div>
+            </div>
+        </div> <!--BTEST 单选题 end-->
+        <!--BTEST 多选题 start-->
+        <div class="exam" id="B_checkbox_exam_1" style="display: none;">
+            <div class="explain">
+                <div id="B_checkbox_styleExplain_1" style=" float:left;">B型题——多选题题型说明</div>
+                <div id="B_checkbox_pageNum_1" style=" float:right; cursor:pointer;">
+                    <span id="B_checkbox_curPageNum_1" class="tigan">222</span>/<span id="B_checkbox_totalPageNum_1" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="B_checkbox_title_1" style="line-height: 30px; font-size: 22px;">
+                <div id="B_checkbox_testTitle_1">B型题——多选题试题标题</div>
+            </div>
+            <div id="B_checkbox_wrap_1" class="fm300">
+                <div class="Content0" id="B_checkbox_Content0_1">
+                    <ul id="B_checkbox_Items_1">
+                        <li id="B_checkbox_items_0_1"></li>
+                        <li id="B_checkbox_items_1_1"></li>
+                        <li id="B_checkbox_items_2_1"></li>
+                        <li id="B_checkbox_items_3_1"></li>
+                        <li id="B_checkbox_items_4_1"></li>
+                        <li id="B_checkbox_items_5_1"></li>
+                        <li id="B_checkbox_items_6_1"></li>
+                        <li id="B_checkbox_items_7_1"></li>
+                        <li id="B_checkbox_items_8_1"></li>
+                        <li id="B_checkbox_items_9_1"></li>
+                        <li id="B_checkbox_items_10_1"></li>
+                        <li id="B_checkbox_items_11_1"></li>
+                        <li id="B_checkbox_items_12_1"></li>
+                        <li id="B_checkbox_items_13_1"></li>
+                        <li id="B_checkbox_items_14_1"></li>
+                    </ul>
+                </div>
+                <div class="result" id="B_checkbox_result_1">
+                    <div id="B_checkbox_answer_1">正确答案：curTest.Answer </div>
+                    <div id="B_checkbox_explain_1">试题解析： curTest.Explain </div>
+                    <div id="B_checkbox_testPoint_1">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="B_checkbox_noteCount_1" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="B_checkbox_myNote_1" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="B_checkbox_time_1" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="B_checkbox_getOtherNote_1" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="B_checkbox_otherNoteCount_1" style="display:none;">
+                    <div id="B_checkbox_otherTxt_1" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="B_checkbox_refresh_1" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="B_checkbox_otherNoteList_1">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="B_checkbox_moreNote_1">加载更多大家的笔记</div>
+                </div>
+        
+                <div id="B_checkbox_operate_1" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="B_checkbox_btn_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>提交答案</span>
+                </div>
+                <div id="B_checkbox_moveNextDiv_1" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="B_checkbox_cuoR_1"></div>
+            </div>
+        </div> <!--BTEST 多选题 end-->
+        <!--判断题 start-->
+        <div class="exam" id="pd_exam_1" style="display: none;">
+            <div class="explain">
+                <div id="pd_styleExplain_1" style=" float:left;">判断题题型说明</div>
+                <div id="pd_pageNum_1" style=" float:right; cursor:pointer;">
+                    <span id="pd_curPageNum_1" class="tigan">222</span>/<span id="pd_totalPageNum_1" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="pd_title_1" style="line-height: 30px; font-size: 22px;">
+                <div id="pd_testTitle_1">判断选题试题标题</div>
+            </div>
+            <div id="pd_wrap_1" class="fm300">
+                <div class="Content0" id="pd_Content0_1">
+                    <ul id="pd_radio_Items_1">
+                        <li id="pd_radio_items_0_1" lang="对">A.对</li>
+                        <li id="pd_radio_items_1_1" lang="错">B.错</li>
+                        <li id="pd_radio_items_2_1" lang="错">B.错 </li>
+                    </ul>
+                </div>
+                <div class="result" id="pd_result_1">
+                    <div id="pd_answer_1">正确答案：curTest.Answer </div>
+                    <div id="pd_explain_1">试题解析： curTest.Explain </div>
+                    <div id="pd_testPoint_1">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="pd_noteCount_1" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="pd_myNote_1" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="pd_time_1" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="pd_getOtherNote_1" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="pd_otherNoteCount_1" style="display:none;">
+                    <div id="pd_otherTxt_1" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="pd_refresh_1" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="pd_otherNoteList_1">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="pd_moreNote_1">加载更多大家的笔记</div>
+                </div>
+        
+                <div id="pd_operate_1" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="pd_moveNextDiv_1" class="next_button_3" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="pd_cuoR_1"></div>
+            </div>
+        </div> <!--判断题 end-->
+        <!--简答题 start-->
+        <div class="exam" id="jd_exam_1" style="display: none;">
+            <div class="explain">
+                <div id="jd_styleExplain_1" style=" float:left;">简答题题型说明</div>
+                <div id="jd_pageNum_1" style=" float:right; cursor:pointer;">
+                    <span id="jd_curPageNum_1" class="tigan">222</span>/<span id="jd_totalPageNum_1" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="jd_title_1" style="line-height: 30px; font-size: 22px;">
+                <div id="jd_testTitle_1">简答题试题标题</div>
+            </div>
+            <div id="jd_wrap_1" class="fm300">
+                <div class="area" id="jd_area_1">
+                    <textarea id="jd_textarea_1" cols="52" rows="7"></textarea>
+                </div>
+                <div class="result" id="jd_result_1">
+                    <div id="jd_answer_1">正确答案：curTest.Answer </div>
+                    <div id="jd_explain_1">试题解析： curTest.Explain </div>
+                    <div id="jd_testPoint_1">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="jd_noteCount_1" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="jd_myNote_1" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="jd_time_1" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="jd_getOtherNote_1" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="jd_otherNoteCount_1" style="display:none;">
+                    <div id="jd_otherTxt_1" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="jd_refresh_1" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="jd_otherNoteList_1">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="jd_moreNote_1">加载更多大家的笔记</div>
+                </div>
+                <div id="jd_operate_1" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="jd_btn_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="jd_moveNextDiv_1" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="jd_cuoR_1"></div>
+            </div>
+        </div> <!--简答题 end-->
+        <!--填空题 start-->
+        <div class="exam" id="tk_exam_1" style="display: none;">
+            <div class="explain">
+                <div id="tk_styleExplain_1" style=" float:left;">填空题题型说明</div>
+                <div id="tk_pageNum_1" style=" float:right; cursor:pointer;">
+                    <span id="tk_curPageNum_1" class="tigan">222</span>/<span id="tk_totalPageNum_1" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="tk_title_1" style="line-height: 30px; font-size: 22px;">
+                <div id="tk_testTitle_1">填空题试题标题</div>
+            </div>
+            <div id="wrap_1" class="fm300">
+                <div class="area" id="tk_area_1">
+                    <ol id="tk_Items_1" type="1">
+                        <li id="tk_items_0_1"><input type="text" id="tk_itemsText_0_1"></li>
+                        <li id="tk_items_1_1"><input type="text" id="tk_itemsText_1_1"></li>
+                        <li id="tk_items_2_1"><input type="text" id="tk_itemsText_2_1"></li>
+                        <li id="tk_items_3_1"><input type="text" id="tk_itemsText_3_1"></li>
+                        <li id="tk_items_4_1"><input type="text" id="tk_itemsText_4_1"></li>
+                        <li id="tk_items_5_1"><input type="text" id="tk_itemsText_5_1"></li>
+                        <li id="tk_items_6_1"><input type="text" id="tk_itemsText_6_1"></li>
+                        <li id="tk_items_7_1"><input type="text" id="tk_itemsText_7_1"></li>
+                        <li id="tk_items_8_1"><input type="text" id="tk_itemsText_8_1"></li>
+                        <li id="tk_items_9_1"><input type="text" id="tk_itemsText_9_1"></li>
+                        <li id="tk_items_10_1"><input type="text" id="tk_itemsText_10_1"></li>
+                    </ol>
+                </div>
+                <div class="result" id="tk_result_1">
+                    <div id="tk_answer_1">正确答案：curTest.Answer </div>
+                    <div id="tk_explain_1">试题解析： curTest.Explain </div>
+                    <div id="tk_testPoint_1">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="tk_noteCount_1" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="tk_myNote_1" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="tk_time_1" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="tk_getOtherNote_1" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="tk_otherNoteCount_1" style="display:none;">
+                    <div id="tk_otherTxt_1" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="tk_refresh_1" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="tk_otherNoteList_1">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="tk_moreNote_1">加载更多大家的笔记</div>
+                </div>
+                <div id="tk_operate_1" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="tk_btn_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="tk_moveNextDiv_1" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="tk_cuoR_1"></div>
+            </div>
+        </div> <!--填空题 end-->
+		<div id="moreBtn_1" style="width:90%;">
+			<div id="videoBtn_1" class="next_button_3" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+				 <span>章节视频</span>
+			</div>
+		</div>
+        <div id="markingDiv_1" class="marking_button" style=" display:none; cursor:pointer;">
+            <span>批阅</span>
+        </div>
+        </div> <!--exambt end-->
+        </flipcontent2><div class="flipDiv"></div></div><div id="flipTest3"><flipcontent3 id="flipContent3" class="flipContentDiv">
+        <div id="exam_2">
+        <!--单选题 start-->
+        <div class="exam" id="radio_exam_2" style="display: block;">
+            <div class="explain">
+                <div id="radio_styleExplain_2" style=" float:left;">A1型题</div>
+                <div id="radio_pageNum_2" style=" float:right; cursor:pointer;">
+                    <span id="radio_curPageNum_2" class="tigan">3</span>/<span id="radio_totalPageNum_2" class="tishu" style="color: rgb(0, 0, 0);">5</span>
+                </div>
+            </div>
+            <div class="title" id="radio_title_2" style="line-height: 30px; font-size: 22px;">
+                <div id="radio_testTitle_2">3、从局部的微小变化测知整体情况，称为</div>
+            </div>
+            <div id="radio_wrap_2" class="fm300">
+                <div class="Content0" id="radio_Content0_2">
+                    <ul id="radio_Items_2">
+                        <li id="radio_items_0_2" class="radioDefaultImg" lang="A" style="display: block;">A.司外揣内</li>
+                        <li id="radio_items_1_2" class="radioDefaultImg" lang="B" style="display: block;">B.见微知著</li>
+                        <li id="radio_items_2_2" class="radioDefaultImg" lang="C" style="display: block;">C.以常衡变</li>
+                        <li id="radio_items_3_2" class="radioDefaultImg" lang="D" style="display: block;">D.整体审察</li>
+                        <li id="radio_items_4_2" class="radioDefaultImg" lang="E" style="display: block;">E.病证结合</li>
+                        <li id="radio_items_5_2" style="display: none;"></li>
+                        <li id="radio_items_6_2" style="display: none;"></li>
+                        <li id="radio_items_7_2" style="display: none;"></li>
+                        <li id="radio_items_8_2" style="display: none;"></li>
+                        <li id="radio_items_9_2" style="display: none;"></li>
+                        <li id="radio_items_10_2" style="display: none;"></li>
+                        <li id="radio_items_11_2" style="display: none;"></li>
+                        <li id="radio_items_12_2" style="display: none;"></li>
+                        <li id="radio_items_13_2" style="display: none;"></li>
+                    </ul>
+                </div>
+                <div class="result" id="radio_result_2" style="display: none; margin-bottom: 8px;">
+                    <div id="radio_answer_2" style="display: block;">答案：B</div>
+                    <div id="radio_explain_2" style="display: none;">解析：无</div>
+                    <div id="radio_testPoint_2" style="display: none;">考点：无</div>
+                </div>
+                <div class="myNoteDiv" id="radio_noteCount_2" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="radio_myNote_2" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="radio_time_2" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="radio_getOtherNote_2" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="radio_otherNoteCount_2" style="display:none;">
+                    <div id="radio_otherTxt_2" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="radio_refresh_2" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="radio_otherNoteList_2">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="radio_moreNote_2">加载更多大家的笔记</div>
+                </div>
+                
+                <div id="radio_operate_2" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div> 
+                <div id="radio_moveNextDiv_2" class="next_button_3" style="display: block; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="radio_cuoR_2"></div>
+            </div>
+          
+        </div> <!--单选题 end-->
+        <!--多选题 start-->
+        <div class="exam" id="checkbox_exam_2" style="display: none;">
+            <div class="explain">
+                <div id="checkbox_styleExplain_2" style=" float:left;">多选题题型说明</div>
+                <div id="checkbox_pageNum_2" style=" float:right; cursor:pointer;">
+                    <span id="checkbox_curPageNum_2" class="tigan">222</span>/<span id="checkbox_totalPageNum_2" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="checkbox_title_2" style="line-height: 30px; font-size: 22px;">
+                <div id="checkbox_testTitle_2">多选题试题标题</div>
+            </div>
+            <div id="checkbox_wrap_2" class="fm300">
+                <div class="Content0" id="checkbox_Content0_2">
+                    <ul id="checkbox_Items_2">
+                        <li id="checkbox_items_0_2"></li>
+                        <li id="checkbox_items_1_2"> </li>
+                        <li id="checkbox_items_2_2"></li>
+                        <li id="checkbox_items_3_2"></li>
+                        <li id="checkbox_items_4_2"></li>
+                        <li id="checkbox_items_5_2"></li>
+                        <li id="checkbox_items_6_2"></li>
+                        <li id="checkbox_items_7_2"></li>
+                        <li id="checkbox_items_8_2"></li>
+                        <li id="checkbox_items_9_2"></li>
+                        <li id="checkbox_items_10_2"></li>
+                        <li id="checkbox_items_11_2"></li>
+                        <li id="checkbox_items_12_2"></li>
+                        <li id="checkbox_items_13_2"></li>
+                        <li id="checkbox_items_14_2"></li>
+                    </ul>
+                </div>
+                <div class="result" id="checkbox_result_2">
+                    <div id="checkbox_answer_2">正确答案：curTest.Answer </div>
+                    <div id="checkbox_explain_2">试题解析： curTest.Explain </div>
+                    <div id="checkbox_testPoint_2">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="checkbox_noteCount_2" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="checkbox_myNote_2" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="checkbox_time_2" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="checkbox_getOtherNote_2" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="checkbox_otherNoteCount_2" style="display:none;">
+                    <div id="checkbox_otherTxt_2" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="checkbox_refresh_2" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="checkbox_otherNoteList_2">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="checkbox_moreNote_2">加载更多大家的笔记</div>
+                </div>
+                <div id="checkbox_operate_2" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="checkbox_btn_2" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>提交答案</span>
+                </div>
+                <div id="checkbox_moveNextDiv_2" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="checkbox_cuoR_2"></div>
+            </div>
+        </div> <!--多选题 end-->
+        <!--A3TEST 单选题 start-->
+        <div class="exam" id="A3_radio_exam_2" style="display: none;">
+            <div class="explain">
+                <div id="A3_radio_styleExplain_2" style=" float:left;">A3型题——单选题题型说明</div>
+                <div id="A3_radio_pageNum_2" style=" float:right; cursor:pointer;">
+                    <span id="A3_radio_curPageNum_2" class="tigan">222</span>/<span id="A3_radio_totalPageNum_2" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="A3_radio_title_2" style="line-height: 30px; font-size: 22px;">
+                <div id="A3_radio_testTitle_2">A3型题——单选题试题标题</div>
+                <div id="A3_radio_a3test_2">A3题型小标题</div>
+            </div>
+            <div id="A3_radio_wrap_2" class="fm300">
+                <div class="Content0" id="A3_radio_Content0_2">
+                    <ul id="A3_radio_Items_2">
+                        <li id="A3_radio_items_0_2"></li>
+                        <li id="A3_radio_items_1_2"></li>
+                        <li id="A3_radio_items_2_2"></li>
+                        <li id="A3_radio_items_3_2"></li>
+                        <li id="A3_radio_items_4_2"></li>
+                        <li id="A3_radio_items_5_2"></li>
+                        <li id="A3_radio_items_6_2"></li>
+                        <li id="A3_radio_items_7_2"></li>
+                        <li id="A3_radio_items_8_2"></li>
+                        <li id="A3_radio_items_9_2"></li>
+                        <li id="A3_radio_items_10_2"></li>
+                        <li id="A3_radio_items_11_2"></li>
+                        <li id="A3_radio_items_12_2"></li>
+                        <li id="A3_radio_items_13_2"></li>
+                        <li id="A3_radio_items_14_2"></li>
+                    </ul>
+                </div>
+                <div class="result" id="A3_radio_result_2">
+                    <div id="A3_radio_answer_2">正确答案：curTest.Answer </div>
+                    <div id="A3_radio_explain_2">试题解析： curTest.Explain </div>
+                    <div id="A3_radio_testPoint_2">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="A3_radio_noteCount_2" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="A3_radio_myNote_2" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="A3_radio_time_2" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="A3_radio_getOtherNote_2" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="A3_radio_otherNoteCount_2" style="display:none;">
+                    <div id="A3_radio_otherTxt_2" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="A3_radio_refresh_2" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="A3_radio_otherNoteList_2">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="A3_radio_moreNote_2">加载更多大家的笔记</div>
+                </div>
+                <div id="A3_radio_operate_2" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="A3_radio_moveNextDiv_2" class="next_button_3" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="A3_radio_cuoR_2"></div>
+            </div>
+        </div> <!--A3TEST 单选题 end-->
+        <!--A3TEST 多选题 start-->
+        <div class="exam" id="A3_checkbox_exam_2" style="display: none;">
+            <div class="explain">
+                <div id="A3_checkbox_styleExplain_2" style=" float:left;">A3型题——多选题题型说明</div>
+                <div id="A3_checkbox_pageNum_2" style=" float:right; cursor:pointer;">
+                    <span id="A3_checkbox_curPageNum_2" class="tigan">222</span>/<span id="A3_checkbox_totalPageNum_2" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="A3_checkbox_title_2" style="line-height: 30px; font-size: 22px;">
+                <div id="A3_checkbox_testTitle_2">A3型题——多选题试题标题</div>
+                <div id="A3_checkbox_a3test_2">A3题型小标题</div>
+            </div>
+            <div id="A3_checkbox_wrap_2" class="fm300">
+                <div class="Content0" id="A3_checkbox_Content0_2">
+                    <ul id="A3_checkbox_Items_2">
+                        <li id="A3_checkbox_items_0_2"></li>
+                        <li id="A3_checkbox_items_1_2"></li>
+                        <li id="A3_checkbox_items_2_2"></li>
+                        <li id="A3_checkbox_items_3_2"></li>
+                        <li id="A3_checkbox_items_4_2"></li>
+                        <li id="A3_checkbox_items_5_2"></li>
+                        <li id="A3_checkbox_items_6_2"></li>
+                        <li id="A3_checkbox_items_7_2"></li>
+                        <li id="A3_checkbox_items_8_2"></li>
+                        <li id="A3_checkbox_items_9_2"></li>
+                        <li id="A3_checkbox_items_10_2"></li>
+                        <li id="A3_checkbox_items_11_2"></li>
+                        <li id="A3_checkbox_items_12_2"></li>
+                        <li id="A3_checkbox_items_13_2"></li>
+                        <li id="A3_checkbox_items_14_2"></li>
+                        <li id="A3_checkbox_items_15_2"></li>
+                    </ul>
+                </div>
+                <div class="result" id="A3_checkbox_result_2">
+                    <div id="A3_checkbox_answer_2">正确答案：curTest.Answer </div>
+                    <div id="A3_checkbox_explain_2">试题解析： curTest.Explain </div>
+                    <div id="A3_checkbox_testPoint_2">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="A3_checkbox_noteCount_2" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="A3_checkbox_myNote_2" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="A3_checkbox_time_2" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="A3_checkbox_getOtherNote_2" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="A3_checkbox_otherNoteCount_2" style="display:none;">
+                    <div id="A3_checkbox_otherTxt_2" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="A3_checkbox_refresh_2" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="A3_checkbox_otherNoteList_2">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="A3_checkbox_moreNote_2">加载更多大家的笔记</div>
+                </div>
+        
+                <div id="A3_checkbox_operate_2" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="A3_checkbox_btn_2" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>提交答案</span>
+                </div> 
+                <div id="A3_checkbox_moveNextDiv_2" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="A3_checkbox_cuoR_2"></div>
+            </div>
+        </div> <!--A3TEST 多选题 end-->
+        <!--BTEST 单选题 start-->
+        <div class="exam" id="B_radio_exam_2" style="display: none;">
+            <div class="explain">
+                <div id="B_radio_styleExplain_2" style=" float:left;">B型题——单选题题型说明</div>
+                <div id="B_radio_pageNum_2" style=" float:right; cursor:pointer;">
+                    <span id="B_radio_curPageNum_2" class="tigan">222</span>/<span id="B_radio_totalPageNum_2" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="B_radio_title_2" style="line-height: 30px; font-size: 22px;">
+                <div id="B_radio_testTitle_2">B型题——单选题试题标题</div>
+            </div>
+            <div id="B_radio_wrap_2" class="fm300">
+                <div class="Content0" id="B_radio_Content0_2">
+                    <ul id="B_radio_Items_2">
+                        <li id="B_radio_items_0_2"></li>
+                        <li id="B_radio_items_1_2"></li>
+                        <li id="B_radio_items_2_2"></li>
+                        <li id="B_radio_items_3_2"></li>
+                        <li id="B_radio_items_4_2"></li>
+                        <li id="B_radio_items_5_2"></li>
+                        <li id="B_radio_items_6_2"></li>
+                        <li id="B_radio_items_7_2"></li>
+                        <li id="B_radio_items_8_2"></li>
+                        <li id="B_radio_items_9_2"></li>
+                        <li id="B_radio_items_10_2"></li>
+                        <li id="B_radio_items_11_2"></li>
+                        <li id="B_radio_items_12_2"></li>
+                        <li id="B_radio_items_13_2"></li>
+                        <li id="B_radio_items_14_2"></li>
+                        <li id="B_radio_items_15_2"></li>
+                    </ul>
+                </div>
+                <div class="result" id="B_radio_result_2">
+                    <div id="B_radio_answer_2">正确答案：curTest.Answer </div>
+                    <div id="B_radio_explain_2">试题解析： curTest.Explain </div>
+                    <div id="B_radio_testPoint_2">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="B_radio_noteCount_2" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="B_radio_myNote_2" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="B_radio_time_2" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="B_radio_getOtherNote_2" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="B_radio_otherNoteCount_2" style="display:none;">
+                    <div id="B_radio_otherTxt_2" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="B_radio_refresh_2" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="B_radio_otherNoteList_2">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="B_radio_moreNote_2">加载更多大家的笔记</div>
+                </div>
+                <div id="B_radio_operate_2" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="B_radio_moveNextDiv_2" class="next_button_3" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="B_radio_cuoR_2"></div>
+            </div>
+        </div> <!--BTEST 单选题 end-->
+        <!--BTEST 多选题 start-->
+        <div class="exam" id="B_checkbox_exam_2" style="display: none;">
+            <div class="explain">
+                <div id="B_checkbox_styleExplain_2" style=" float:left;">B型题——多选题题型说明</div>
+                <div id="B_checkbox_pageNum_2" style=" float:right; cursor:pointer;">
+                    <span id="B_checkbox_curPageNum_2" class="tigan">222</span>/<span id="B_checkbox_totalPageNum_2" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="B_checkbox_title_2" style="line-height: 30px; font-size: 22px;">
+                <div id="B_checkbox_testTitle_2">B型题——多选题试题标题</div>
+            </div>
+            <div id="B_checkbox_wrap_2" class="fm300">
+                <div class="Content0" id="B_checkbox_Content0_2">
+                    <ul id="B_checkbox_Items_2">
+                        <li id="B_checkbox_items_0_2"></li>
+                        <li id="B_checkbox_items_1_2"></li>
+                        <li id="B_checkbox_items_2_2"></li>
+                        <li id="B_checkbox_items_3_2"></li>
+                        <li id="B_checkbox_items_4_2"></li>
+                        <li id="B_checkbox_items_5_2"></li>
+                        <li id="B_checkbox_items_6_2"></li>
+                        <li id="B_checkbox_items_7_2"></li>
+                        <li id="B_checkbox_items_8_2"></li>
+                        <li id="B_checkbox_items_9_2"></li>
+                        <li id="B_checkbox_items_10_2"></li>
+                        <li id="B_checkbox_items_11_2"></li>
+                        <li id="B_checkbox_items_12_2"></li>
+                        <li id="B_checkbox_items_13_2"></li>
+                        <li id="B_checkbox_items_14_2"></li>
+                    </ul>
+                </div>
+                <div class="result" id="B_checkbox_result_2">
+                    <div id="B_checkbox_answer_2">正确答案：curTest.Answer </div>
+                    <div id="B_checkbox_explain_2">试题解析： curTest.Explain </div>
+                    <div id="B_checkbox_testPoint_2">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="B_checkbox_noteCount_2" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="B_checkbox_myNote_2" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="B_checkbox_time_2" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="B_checkbox_getOtherNote_2" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="B_checkbox_otherNoteCount_2" style="display:none;">
+                    <div id="B_checkbox_otherTxt_2" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="B_checkbox_refresh_2" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="B_checkbox_otherNoteList_2">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="B_checkbox_moreNote_2">加载更多大家的笔记</div>
+                </div>
+        
+                <div id="B_checkbox_operate_2" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="B_checkbox_btn_2" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>提交答案</span>
+                </div>
+                <div id="B_checkbox_moveNextDiv_2" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="B_checkbox_cuoR_2"></div>
+            </div>
+        </div> <!--BTEST 多选题 end-->
+        <!--判断题 start-->
+        <div class="exam" id="pd_exam_2" style="display: none;">
+            <div class="explain">
+                <div id="pd_styleExplain_2" style=" float:left;">判断题题型说明</div>
+                <div id="pd_pageNum_2" style=" float:right; cursor:pointer;">
+                    <span id="pd_curPageNum_2" class="tigan">222</span>/<span id="pd_totalPageNum_2" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="pd_title_2" style="line-height: 30px; font-size: 22px;">
+                <div id="pd_testTitle_2">判断选题试题标题</div>
+            </div>
+            <div id="pd_wrap_2" class="fm300">
+                <div class="Content0" id="pd_Content0_2">
+                    <ul id="pd_radio_Items_2">
+                        <li id="pd_radio_items_0_2" lang="对">A.对</li>
+                        <li id="pd_radio_items_1_2" lang="错">B.错</li>
+                        <li id="pd_radio_items_2_2" lang="错">B.错 </li>
+                    </ul>
+                </div>
+                <div class="result" id="pd_result_2">
+                    <div id="pd_answer_2">正确答案：curTest.Answer </div>
+                    <div id="pd_explain_2">试题解析： curTest.Explain </div>
+                    <div id="pd_testPoint_2">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="pd_noteCount_2" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="pd_myNote_2" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="pd_time_2" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="pd_getOtherNote_2" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="pd_otherNoteCount_2" style="display:none;">
+                    <div id="pd_otherTxt_2" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="pd_refresh_2" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="pd_otherNoteList_2">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="pd_moreNote_2">加载更多大家的笔记</div>
+                </div>
+        
+                <div id="pd_operate_2" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="pd_moveNextDiv_2" class="next_button_3" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="pd_cuoR_2"></div>
+            </div>
+        </div> <!--判断题 end-->
+        <!--简答题 start-->
+        <div class="exam" id="jd_exam_2" style="display: none;">
+            <div class="explain">
+                <div id="jd_styleExplain_2" style=" float:left;">简答题题型说明</div>
+                <div id="jd_pageNum_2" style=" float:right; cursor:pointer;">
+                    <span id="jd_curPageNum_2" class="tigan">222</span>/<span id="jd_totalPageNum_2" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="jd_title_2" style="line-height: 30px; font-size: 22px;">
+                <div id="jd_testTitle_2">简答题试题标题</div>
+            </div>
+            <div id="jd_wrap_2" class="fm300">
+                <div class="area" id="jd_area_2">
+                    <textarea id="jd_textarea_2" cols="52" rows="7"></textarea>
+                </div>
+                <div class="result" id="jd_result_2">
+                    <div id="jd_answer_2">正确答案：curTest.Answer </div>
+                    <div id="jd_explain_2">试题解析： curTest.Explain </div>
+                    <div id="jd_testPoint_2">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="jd_noteCount_2" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="jd_myNote_2" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="jd_time_2" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="jd_getOtherNote_2" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="jd_otherNoteCount_2" style="display:none;">
+                    <div id="jd_otherTxt_2" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="jd_refresh_2" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="jd_otherNoteList_2">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="jd_moreNote_2">加载更多大家的笔记</div>
+                </div>
+                <div id="jd_operate_2" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="jd_btn_2" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="jd_moveNextDiv_2" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="jd_cuoR_2"></div>
+            </div>
+        </div> <!--简答题 end-->
+        <!--填空题 start-->
+        <div class="exam" id="tk_exam_2" style="display: none;">
+            <div class="explain">
+                <div id="tk_styleExplain_2" style=" float:left;">填空题题型说明</div>
+                <div id="tk_pageNum_2" style=" float:right; cursor:pointer;">
+                    <span id="tk_curPageNum_2" class="tigan">222</span>/<span id="tk_totalPageNum_2" class="tishu" style="color: rgb(0, 0, 0);">55555</span>
+                </div>
+            </div>
+            <div class="title" id="tk_title_2" style="line-height: 30px; font-size: 22px;">
+                <div id="tk_testTitle_2">填空题试题标题</div>
+            </div>
+            <div id="wrap_2" class="fm300">
+                <div class="area" id="tk_area_2">
+                    <ol id="tk_Items_2" type="1">
+                        <li id="tk_items_0_2"><input type="text" id="tk_itemsText_0_2"></li>
+                        <li id="tk_items_1_2"><input type="text" id="tk_itemsText_1_2"></li>
+                        <li id="tk_items_2_2"><input type="text" id="tk_itemsText_2_2"></li>
+                        <li id="tk_items_3_2"><input type="text" id="tk_itemsText_3_2"></li>
+                        <li id="tk_items_4_2"><input type="text" id="tk_itemsText_4_2"></li>
+                        <li id="tk_items_5_2"><input type="text" id="tk_itemsText_5_2"></li>
+                        <li id="tk_items_6_2"><input type="text" id="tk_itemsText_6_2"></li>
+                        <li id="tk_items_7_2"><input type="text" id="tk_itemsText_7_2"></li>
+                        <li id="tk_items_8_2"><input type="text" id="tk_itemsText_8_2"></li>
+                        <li id="tk_items_9_2"><input type="text" id="tk_itemsText_9_2"></li>
+                        <li id="tk_items_10_2"><input type="text" id="tk_itemsText_10_2"></li>
+                    </ol>
+                </div>
+                <div class="result" id="tk_result_2">
+                    <div id="tk_answer_2">正确答案：curTest.Answer </div>
+                    <div id="tk_explain_2">试题解析： curTest.Explain </div>
+                    <div id="tk_testPoint_2">考试重点： curTest.TestPoint </div>
+                </div>
+                <div class="myNoteDiv" id="tk_noteCount_2" style="display:none;">
+                    <div class="result1">
+                        <div>我的笔记：</div>
+                        <div id="tk_myNote_2" style="WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;"></div>
+                        <div id="tk_time_2" class="noteTime">curTest.time</div>
+                    </div>
+                </div>
+                <div id="tk_getOtherNote_2" style="display:none;" class="getOtherNote">点击查看大家的笔记</div>
+                <div class="result1" id="tk_otherNoteCount_2" style="display:none;">
+                    <div id="tk_otherTxt_2" class="otherTxt">大家的笔记：</div>
+                    <a href="javascript:void(0);" id="tk_refresh_2" class="refresh" style="color: rgb(0, 0, 0);">刷新</a>
+                    <div id="tk_otherNoteList_2">
+                        <!--<div >大家的笔记：：</div>-->
+                    </div>
+                    <div class="getMoreNote" id="tk_moreNote_2">加载更多大家的笔记</div>
+                </div>
+                <div id="tk_operate_2" class="btn" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div class="btn" id="tk_btn_2" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>查看答案</span>
+                </div>
+                <div id="tk_moveNextDiv_2" class="next_button_1" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    <span>下一题</span>
+                </div> 
+                <div class="conDiv" id="tk_cuoR_2"></div>
+            </div>
+        </div> <!--填空题 end-->
+		<div id="moreBtn_2" style="width:90%;">
+			<div id="videoBtn_2" class="next_button_3" style="display: none; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+				 <span>章节视频</span>
+			</div>
+		</div>
+        <div id="markingDiv_2" class="marking_button" style=" display:none; cursor:pointer;">
+            <span>批阅</span>
+        </div>
+        </div> <!--exambt end-->
+        </flipcontent3><div class="flipDiv"></div></div></div>
+        </div>
+        <!--滑动层-->
+        <div id="BottomNav" class="b_rel">
+            <ul style="width: 100%;height:100%;padding:0 0 0 0;">
+                <li class="bottomLi" id="movePre">
+                    <img src="./考试宝典-做题界面_files/prv.png" class="bottomImg">
+                </li>
+                <li class="bottomLi" id="moveNext">
+                    <img src="./考试宝典-做题界面_files/next.png" class="bottomImg">
+                </li>
+                <li id="fav" class="bottomLi" style="display: block;">
+                    <img src="./考试宝典-做题界面_files/shoucang_dati1.png" class="bottomImg">
+                </li>
+                <li id="removeFav" style="display :none" class="bottomLi">
+                    <img src="./考试宝典-做题界面_files/shoucang_dati2.png" class="bottomImg">
+                </li>
+                <li id="note" class="bottomLi" style="display: block;">
+                    <img src="./考试宝典-做题界面_files/notes1.png" class="bottomImg">
+                </li>
+                <li id="updateNote" style="display :none" class="bottomLi">
+                    <img src="./考试宝典-做题界面_files/notes2.png" class="bottomImg">
+                </li>
+                <li class="bottomLi" id="menuBar">
+                    <img src="./考试宝典-做题界面_files/more_exam.png" class="bottomImg" style="width:25px;height:25px;padding-top:11px;">
+                </li>
+            </ul>
+            <ul id="testMenu" class="testMenu" style="text-align:center;display:none;position: absolute;">
+                <li id="reciteTest" class="bottomLi1">
+                    <img src="./考试宝典-做题界面_files/beiti.png" id="reciteImg" class="Imgone_xiala_1">
+                    <span class="text_piyue">背题</span>
+                </li>
+                <li id="doTest" style="display:none;" class="bottomLi1">
+                    <img src="./考试宝典-做题界面_files/dati.png" class="Imgone_xiala">
+                    <span class="text_piyue">答题</span>
+                </li>
+                <li id="titleCard" class="bottomLi1">
+                    <img src="./考试宝典-做题界面_files/tika-xiala.png" class="Imgone_xiala_1">
+                    <span class="text_tika">题卡</span>
+                </li>
+                <li id="marking" class="bottomLi1">
+                    <img src="./考试宝典-做题界面_files/piyue-xiala.png" id="markingImg" class="Imgone_xiala_1">
+                    <span class="text_piyue">批阅</span>
+                </li>
+                <li id="retake" style="display:none;" class="bottomLi1">
+                    <img src="./考试宝典-做题界面_files/chongkao-xiala.png" class="Imgone_xiala_1">
+                    <span class="text_piyue">重考</span>
+                </li>
+                <li id="btnShare" class="bottomLi1">
+                    <img src="./考试宝典-做题界面_files/btn_share.png" class="Imgone_xiala_1" style="padding-top: 3px;">
+                    <span class="text_piyue">分享</span>
+                </li>
+                <li id="softSetting" class="bottomLi2">
+                    <img src="./考试宝典-做题界面_files/shezi-xiala.png" class="Imgone_xiala_2">
+                    <span class="text_shezi">设置</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    window.onload = function() {
+        clearInterval(timer);
+        loadTime.cost = (new Date().getTime()-loadTime.begin);
+        console.log(loadTime)
+    }
+</script>
+</body></html>

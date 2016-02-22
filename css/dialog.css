@@ -1,0 +1,47 @@
+.dvMsgBox{display:none;position:fixed;font-size:12px;width:300px;overflow:hidden;z-index:999; border:1px solid #4093DA; background-color: #FFF;}
+.dvMsgBox .dialogTop{height:40px;background:#4093DA;padding-left:6px; float:left; width:100%;}
+.dvMsgBox .dialogTop .dialogRight{height:100%;}
+.dvMsgBox .dialogTop .dialogRight .dialogTitle{height:100%;line-height:35px;color:#fff;vertical-align:middle;overflow:hidden;font-size:16px;}/*font-weight:bold;*/
+.dvMsgBox .dialogBody{background:#fff;padding-left:6px;padding-right:4px;}
+.dvMsgBox .dialogBody .dialogRight{background:#fff;padding-right:2px;}
+.dvMsgBox .dialogBody .dialogRight .dialogCt{line-height:30px;vertical-align:middle;width:100%; text-align:center;padding-top:58px;font-size:18px;}
+.dvMsgBox .dialogBody .dialogRight .dialogCt .pro{width:280px;border:solid 1px #6593cf;height:25px;background:#ffffff;line-height:23px;overflow:hidden;}
+.dvMsgBox .dialogBody .dialogRight .dialogCt .pro .bg{width:0%;height:100%;background:#c9dffc;}
+.dvMsgBox .dialogBottom{background:#fff;padding-left:6px;}
+.dvMsgBox .dialogBottom .dialogRight{height:100%;padding-right:6px;}
+input.btnDialog{-webkit-appearance:none;border-radius:0px;width:90px; height:35px; cursor:pointer; color:#fff; border:none; text-align:center;background:#4093DA;text-align:center; margin:10px 8px 10 8px;font-size:18px;}
+input.btnDialogFocus{-webkit-appearance:none;border-radius:0px;width:90px; height:35px;background:#4093DA;margin:10px 8px 10 8px; border:none; cursor:pointer; color:#fff;font-size:18px;}
+.dvMsgBox .dialogIcon{width:32px;height:32px;float:left;margin-right:10px;}
+.dvMsgBox .dialogClear{clear:both;}
+.dvMsgBox .dialogHeight{height:8px;line-height:8px;}
+.ShowBolightBox{display:none;-moz-opacity:0.5;filter:alpha(opacity=50);opacity:0.5;background-color:#000000;z-index:100;position:absolute;left:0px;top:0px;}
+.dvMsgBtns{ text-align:center; width:100%;}
+
+/*.dvMsgBox .dialogHeight2{height:0px;line-height:0px;}*/
+/*input.btnDialog2{-webkit-appearance:none;border-radius:0px;width:80px; height:30px; cursor:pointer; color:#fff; border:none; text-align:center;background:#4093DA;text-align:center; margin:10px 10px 0 8px;font-size:14px;}*/
+/*input.btnDialogFocus2{-webkit-appearance:none;border-radius:0px;width:80px; height:30px;background:#4093DA;margin:10px 10px 0 8px; border:none; cursor:pointer; color:#fff;font-size:14px;}*/
+/*text-align*/
+.dialogTitle2{height:100%;line-height:40px;color:#fff;vertical-align:middle;overflow:hidden;font-size:18px; text-align:center;}
+/*ÆøÅÝµ¯³ö¿ò*/
+.dvMsgBoxPop
+{
+    display: none;
+    position: fixed;
+    width: 300px;
+    overflow: hidden;
+    z-index: 999;
+    /*background-color: gray;*/
+    border-radius: 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    /*filter: alpha(opacity=90);
+    opacity: 0.9;*/
+    /*padding: 10px;*/
+    border: 7px solid #2E2E2E;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: left;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.popDialogBtn{-webkit-appearance:none;border-radius:5px;width:90px; height:30px; cursor:pointer; color:#000; border:solid 1px #000; text-align:center;background:#FFF;text-align:center; margin:10px 8px 10 8px;font-size:14px;}
