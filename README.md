@@ -2,6 +2,8 @@
 
 [利用 Grunt （几乎）无痛地做前端开发 (一)](http://q.pnq.cc/blog/2012/11/30/_grunt-1/)
 
+[Grunt + Bower—前端构建利器](http://doc.okbase.net/Alex--Yang/archive/123625.html)
+
 [Grunt中批量无损压缩图片插件－－Grunt-contrib-imagemin  ](http://handyxuefeng.blog.163.com/blog/static/45452172201391415246847/)
 
 [用Grunt搭建基于LESS的前端html开发框架](http://www.douban.com/note/344324661/)
@@ -166,3 +168,38 @@ https://www.npmjs.org/package/grunt-html-build
 https://www.npmjs.org/package/grunt-contrib-concat
 https://www.npmjs.org/package/grunt-contrib-less
 https://www.npmjs.org/package/grunt-contrib-watch
+
+```
+$ npm install -g grunt-init
+$ git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+$ mkdir ~/html/grunt
+$ cd ~/html/grunt
+$ grunt-init gruntfile
+$ npm install
+```
+##grunt + bower
+```
+cd html/
+$ mkdir grunt_bower
+$ cd grunt_bower/
+$ npm init
+$ more package.json
+$ grunt-init gruntfile
+$ npm install bower -g
+$ touch bower.json
+$ vim bower.json
+$ bower install angularjs --save
+$ bower insall jquery --save
+$ npm install grunt-bower-task --save-dev
+$ pwd
+$ vim Gruntfile.js
+$ subl .
+$ bower install angularjs --save
+$ bower insall jquery --save
+$ bower install jquery --save
+$ npm install -g grunt-cli
+$ grunt
+$ npm install -g grunt
+$ npm install
+$ grunt bower
+```
