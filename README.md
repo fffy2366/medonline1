@@ -1,3 +1,6 @@
+[GRUNT中文文档](http://www.gruntjs.net/getting-started)
+
+[利用 Grunt （几乎）无痛地做前端开发 (一)](http://q.pnq.cc/blog/2012/11/30/_grunt-1/)
 
 [Grunt中批量无损压缩图片插件－－Grunt-contrib-imagemin  ](http://handyxuefeng.blog.163.com/blog/static/45452172201391415246847/)
 
